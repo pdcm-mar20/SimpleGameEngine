@@ -97,7 +97,7 @@ public class SimpleGameEngine extends Activity {
                 paint.setTextSize(45);
 
                 canvas.drawText("FPS : " + fps, 20, 40, paint);
-                canvas.drawBitmap(bitmapBob, marioXPosition, 200, paint);
+                canvas.drawBitmap(bitmapBob, bobXPosition, 200, paint);
 
                 ourHolder.unlockCanvasAndPost(canvas);
             }
@@ -105,17 +105,17 @@ public class SimpleGameEngine extends Activity {
 
         public void update() {
             if(isMoving){
-                if ((marioXPosition < xMaxPosition) & !rightMax){
-                    marioXPosition = marioXPosition + (walkSpeedPerSecond / fps);
-                    if (marioXPosition >= xMaxPosition){
+                if ((bobXPosition < xMaxPosition) & !rightMax){
+                    bobXPosition = bobXPosition + (walkSpeedPerSecond / fps);
+                    if (bobXPosition >= xMaxPosition){
                         rightMax = true;
                         leftMax = false;
                     }
                 }
 
-                if (rightMax & (marioXPosition > xMinPosition) & !leftMax){
-                    marioXPosition = marioXPosition - (walkSpeedPerSecond / fps);
-                    if (marioXPosition <= xMinPosition){
+                if (rightMax & (bobXPosition > xMinPosition) & !leftMax){
+                    bobXPosition = bobXPosition - (walkSpeedPerSecond / fps);
+                    if (bobXPosition <= xMinPosition){
                         leftMax = true;
                         rightMax = false;
                     }
